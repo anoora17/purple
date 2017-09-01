@@ -1,0 +1,86 @@
+<head>
+  <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+   <link rel="stylesheet" type="text/css" href="/css/style.css" />
+   <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
+
+   </head>
+{ <div class="hero">
+        <nav class="main-nav nav-collapse clear-fix">
+        <ul>
+          <li><a href="/">About</a></li>
+          <li><a href="/customer/login">Login</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="donate"><a href="/customer/order">Order</a></li>
+        </ul>
+     </nav>
+
+     <div class="container">
+
+		      <div class="header clearfix">
+		        <nav>
+			          <ul class="nav nav-pills float-right">
+			             <li class="nav-item">
+			              <a class="nav-link" href="/customer/register"><h3 style="color:#fff">Register</h3></a>
+			            </li>
+			            <li class="nav-item">
+			              <a class="nav-link" href="/customer/logout"><h3 style="color:#fff">Logout</h3></a>
+			            </li>
+			          </ul>
+		        </nav>
+
+            </div>
+		 <div class="row">
+        		<div class="col-md-4 ">
+						<p><h1 style="color:#fff"> Please Register </h1></p>
+
+              {{#if errors}}
+                {{#each errors}}
+                <div class="alert alert-danger">{{msg}} </div>
+                {{/each}}
+              {{/if}}
+
+			    <form class="form-signin" id='signup' name="register" method="post" action="/customer/register">
+			      <br>
+			      <div>
+			          <input type="text" class="form-control" name="firstname" placeholder="First Name" required="yes" autofocus="yes"/>
+			       </div>
+			      <br>
+			      <br>
+			      <div>
+			          <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="yes" autofocus="yes"/>
+			       </div>
+			      <br>
+
+			      <div>
+				  <br>
+			           <input type="email" class="form-control" name="email" placeholder="Email Address" required="yes" autofocus="yes" /> </div>
+			      <br>
+			      <div>
+			          <input type="password" class="form-control" name="password" placeholder="Password" required="yes" autofocus="yes"/>
+			       </div>
+			      <br>
+			      <br>
+			      <div>
+			          <input type="password" class="form-control" name="confirm" placeholder="confirm" required="yes" autofocus="yes"/>
+			       </div>
+			      <br>
+					<div>
+				  <br>
+			           <input type="text" class="form-control" name="add" placeholder="Address" required="yes" autofocus="yes" /> </div>
+			      <br>
+					<div>
+				  <br>
+			           <input type="text" class="form-control" name="zipcode" placeholder="zipcode" required="yes" autofocus="yes" /> </div>
+			      <br>
+
+
+			            <button class="btn btn-lg btn-sucess btn-block" type="submit">Sign Up</button>     </form>
+			  </div>
+			  </div>
+			</div>
+			</div>

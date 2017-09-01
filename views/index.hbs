@@ -1,0 +1,81 @@
+<head>
+  <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+ 
+   <link rel="stylesheet" href="/css/main.css" />
+   <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
+   <link rel="stylesheet" href="css/responsive-nav.css"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  
+   
+
+  </head>
+<div class="container">
+    <div class="hero">
+     <div class="logo"><a href="#"></a></div>
+      <nav class="main-nav nav-collapse clear-fix">
+        <ul>
+          <li><a href="/">About</a></li>
+          <li><a href="/customer/login">Login</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="donate"><a href="/customer/order">Order</a></li>
+        </ul>
+      </nav>
+      <video autoplay loop id="bg-video">
+        <source src="/video/PurpuleCupcake.mp4" type="video/mp4">
+        <source src="/video/back.mp4" type="video/mp4">
+        <source src="/video/decorate.mp4" type="video/mp4">
+      </video>
+      <div class="hero-content content">
+      <h1 class="clear">Why Purple Cupcakes?</h1>
+      <p>Purple Cupcakes bakes with the highest quality ingredients including; valrhona cocoa, callebaut chocolate, madagascar bourbon vanilla, european style sweet cream butter and fresh fruit. Purple Cupcakes bakes with nuts, wheat, and dairy products on the premises. We strongly caution individuals with severe nut, wheat, and dairy allergies against consuming our cupcakes.</p>
+      </div>
+    </div>
+    <div class="what-is-ccd content-area">
+      <div class="content">
+        <h2 >Getting Involved</h2>
+        <p>Purple Cupcakes regularly participates in community events nationwide and actively supports numerous local and national charitable organizations and foundations, in particular charities that focus on women's and children's health issues. Since opening in 2008, Purple Cupcake has donated tens of thousands of cupcakes and has made hundreds of thousands of dollars in monetary donations to charitable causes. In addition to following us on Instagram, Facebook and Twitter, check our community page regularly for information on exciting upcoming fundraisers and events.</p>
+      </div>
+      <div class="image">
+      <img src="/images/cupcakes1.jpg" alt="">
+      </div>
+    </div>
+    
+     <div class="take-action content-area">
+      <div class="take-action-info content">
+        <div class="social-media-buttons">
+        <h2>FOLLOW US ONLINE!</h2>
+            <a href="https://www.facebook.com/PurpleCupcakes.UK/" target="_blank" class="fa fa-facebook"></a> 
+            <a href="https://twitter.com/search?q=purple%20cupcakes&amp;src=typd&amp;lang=en" target="_blank" class="fa fa-twitter"></a> 
+            <a href="https://www.instagram.com/purplecupcakesuk/" target="_blank" class="fa fa-instagram"></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="take-action-aside">
+       
+    </div>
+
+    <script>
+  var nav = responsiveNav(".nav-collapse", { // Selector
+        animate: true, // Boolean: Use CSS3 transitions, true or false
+        transition: 284, // Integer: Speed of the transition, in milliseconds
+        label: "Menu", // String: Label for the navigation toggle
+        insert: "before", // String: Insert the toggle before or after the navigation
+        customToggle: "", // Selector: Specify the ID of a custom toggle
+        closeOnNavClick: false, // Boolean: Close the navigation when one of the links are clicked
+        openPos: "relative", // String: Position of the opened nav, relative or static
+        navClass: "nav-collapse", // String: Default CSS class. If changed, you need to edit the CSS too!
+        navActiveClass: "js-nav-active", // String: Class that is added to <html> element when nav is active
+        jsClass: "js", // String: 'JS enabled' class which is added to <html> element
+        init: function(){}, // Function: Init callback
+        open: function(){}, // Function: Open callback
+        close: function(){} // Function: Close callback
+    });
+  </script>
+    </div> <!-- close .take-action content area -->
+  </div> <!-- close .container -->
+  <footer>
+    <p>All content on this site &copy; Purple Cupcakes</p>
+  </footer>

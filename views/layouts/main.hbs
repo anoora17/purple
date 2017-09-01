@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+
+    <link rel="stylesheet" href="/css/responsive-nav.css"/>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+   <link rel="stylesheet" href="/css/bootstrap.css" />
+   <link href='http://fonts.googleapis.com/css?family=Roboto:400italic,300,700,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+  <script src="/js/responsive-nav.min.js"></script>
+
+
+  </head>
+
+  <body>
+   <nav class="main-nav nav-collapse clear-fix">
+        <ul>
+          <li><a href="/">About</a></li>
+          <li><a href="/customer/login">Learn More</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="donate"><a href="/customer/order">Order</a></li>
+        </ul>
+      </nav>
+        {{#if success_msg}}
+          <div class="alert alert-sucess">{{success_msg}} </div>
+        {{/if}}
+
+        {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}} </div>
+            {{/if}}
+
+        {{#if error}}
+            <<div class="alert alert-danger">{{error}} </div>
+        {{/if}}
+
+     {{{body}}}
+
+        <footer class="footer">
+        <p>© Purple Cupcake 2017</p>
+      </footer>
+  </body>
+
+  <script>
+  var nav = responsiveNav(".nav-collapse", { // Selector
+        animate: true, // Boolean: Use CSS3 transitions, true or false
+        transition: 284, // Integer: Speed of the transition, in milliseconds
+        label: "Menu", // String: Label for the navigation toggle
+        insert: "before", // String: Insert the toggle before or after the navigation
+        customToggle: "", // Selector: Specify the ID of a custom toggle
+        closeOnNavClick: false, // Boolean: Close the navigation when one of the links are clicked
+        openPos: "relative", // String: Position of the opened nav, relative or static
+        navClass: "nav-collapse", // String: Default CSS class. If changed, you need to edit the CSS too!
+        navActiveClass: "js-nav-active", // String: Class that is added to <html> element when nav is active
+        jsClass: "js", // String: 'JS enabled' class which is added to <html> element
+        init: function(){}, // Function: Init callback
+        open: function(){}, // Function: Open callback
+        close: function(){} // Function: Close callback
+    });
+  </script>
+</html>
