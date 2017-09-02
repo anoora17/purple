@@ -3,7 +3,7 @@
 var bcryptjs = require('bcryptjs'); // for hashing
 
 module.exports = function(sequelize, DataTypes) {
-  var Customer = sequelize.define("customer", {
+  var Customer = sequelize.define("Customer", {   // Jay Update for Cutomer
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
 		firstname: { type: DataTypes.STRING,notEmpty: true},
 		lastname: { type: DataTypes.STRING,notEmpty: true},
@@ -14,13 +14,13 @@ module.exports = function(sequelize, DataTypes) {
 
   });
 
-  // Customer.associate = function(models) {
-  //   // Associating customers with orders
-  //   // When an cutomer is deleted, also delete any associated orders
-  //   Customer.hasMany(models.Order, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  Customer.associate = function(models) {
+    // Associating customers with orders
+    // When an cutomer is deleted, also delete any associated orders
+    Customer.hasMany(models.Order, {
+      onDelete: "cascade"
+    });
+  };
 
   return Customer;
 };

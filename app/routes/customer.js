@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Customer     = require('../models/customer'); // to get the value from customer module
+// var Customer     = require('../models/customer'); // to get the value from customer module
 var db     = require('../models')
 	router.get('/login', (req, res, next) => {
 		res.render('login')
@@ -14,7 +14,7 @@ var db     = require('../models')
 		res.render('dashboard')
 	});
 
-	router.post('/register',  (req, res, next) =>{
+	router.post('/register',  (req, res) =>{
 
 		var firstname = req.body.firstname;
 		var lastname  = req.body.lastname;
@@ -49,15 +49,18 @@ var db     = require('../models')
 					    add: add,
 					zipcode: zipcode
 				});
-				db.Customer.create(newCutomer, function (err, cutomer) {
+				db.Customer.create(newCutomer, function (err, dbcutomer) {
 					if(err) throw {
 						err
 					};
-					console.log(customer)
+					console.log(dbcustomer)
 				});
 				req.flash('success_msg', 'You are successfuly registered and now you can signin');
 				res.redirect('/customer/login');
 		}
 	});
 
+router.post('/login', (req, res) => {
+	res.rednder('dashboard') // dashboard is the order form
+})
 module.exports = router;

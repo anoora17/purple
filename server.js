@@ -82,11 +82,15 @@
 
     app.use('/', routes);
     app.use('/customer', customer)
+    // Jay Routs
+    require("./app/routes/html-routes.js")(app);
+    require("./app/routes/customer-api-routes.js")(app);
+    require("./app/routes/product-api-routes.js")(app);
 
 
 
-    //Sync Database
-   db.sequelize.sync().then(function(){
+    //Sync Database // jay Update force true
+    db.sequelize.sync({force: true}).then(function(){
     console.log('Nice! Database looks fine')
 
     }).catch(function(err){
