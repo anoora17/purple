@@ -52,18 +52,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return Customer;
 };
-// folow the documention on bcrypt https://www.npmjs.com/package/bcrypt // still working on appling it
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
 
-module.exports.createCustomer = function( newCustomer, cb){
-  bcrypt.genSalt(saltRounds, function(err, salt) {
-      bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-        newCustomer.password = hash;
-        newCustomer.save(cb);
-      });
-  });
-
-
-}
