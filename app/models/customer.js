@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
    state: {
          type: DataTypes.STRING
         },
-    zipicode:{
+    zipcode:{
         type:DataTypes.INTEGER,
           validate:{isNumeric: true}
        }

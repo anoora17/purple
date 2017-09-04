@@ -62,8 +62,8 @@ var LocalStrategy = require('passport-local').Strategy;
          lastname: req.body.lastname,
             email: req.body.email,
           password: generateHash(pass),
-             addr1: req.body.add,
-             addr2: req.body.add2,
+             addr1: req.body.addr1,
+             addr2: req.body.addr2,
              city:req.body.city,
              state:req.body.state,
           zipcode: req.body.zipcode
