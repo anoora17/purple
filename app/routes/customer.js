@@ -20,7 +20,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
   router.post('/register',  (req, res) => {
 
-  
+
     //validation before we send the data to cutomer table
     req.check('firstname', 'First Name is Required').notEmpty();
     req.check('lastname', 'Last Name is Required').notEmpty();
@@ -60,7 +60,7 @@ var LocalStrategy = require('passport-local').Strategy;
           zipcode: req.body.zipcode
         };
 
-          
+
     db.Customer.create(newCutomer, function (err, dbcutomer) {
           if(err) throw {
             err
@@ -74,8 +74,8 @@ var LocalStrategy = require('passport-local').Strategy;
   });
 
 
- passport.use(  new LocalStrategy(  
-   
+ passport.use(  new LocalStrategy(
+
  {
   // by default, local strategy uses username and password, we will override with email
   usernameField : 'email',
@@ -85,7 +85,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
   function(req, email, password, done) {
-      condole.log(email+"//"+password+" is trying to login as local.");
+      console.log(email+"//"+password+" is trying to login as local.");
 
     var isValidPassword = function(userpass,password){
       return bCrypt.compareSync(password, userpass);
@@ -97,7 +97,7 @@ db.Customer.findOne({email: email}).then(function (customer) {
         return done(null, false, { message: 'Email does not exist' });
       }
 
-      if (!isValidPassword(customer.password, pass)) {
+      if (!isValidPassword(customer.password, password)) {
 
         return done(null, false, { message: 'Incorrect password.' });
 
@@ -111,26 +111,47 @@ db.Customer.findOne({email: email}).then(function (customer) {
 
       console.log("Error:",err);
 
-      return done(null, false, { message: 'Something went wrong with your Signin' });
+      return done(null, false, { message:flash('Something went wrong with your Signin')  });
 
 
     });
 
   }  ));
 
+passport.serializeUser(function(customer, done) {
+          done(null, customer.id);
+      });
 
 
+  // used to deserialize the user
+  passport.deserializeUser(function(id, done) {
+      db.Customer.findById(id).then(function(customer) {
+        if(customer){
+          done(null, customer.get());
+        }
+        else{
+          done(customer.errors,null);
+        }
+      });
+
+  });
 router.post('/login',
-  passport.authenticate('local', 
-    { successRedirect:'/index', 
-    failureRedirect: '/register', 
-    failureFlash: true
+  passport.authenticate('local',
+    { successRedirect:'/customer/order',
+  	failureRedirect: '/customer/register',
+  	failureFlash: true
      }),
 
   function(req, res) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    res.redirect('/index' + req.customer.email);
+    res.redirect('/index');
   });
+
+router.get('/logout',(req, res) => {
+  req.logout();
+  req.flash('success_msg', " you are successfuly logged out")
+  res.redirect('/customer/login')
+})
 
 module.exports = router;

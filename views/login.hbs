@@ -1,64 +1,73 @@
-  <head>
-  <meta charset="UTF-8">
-    <title>{{title}}</title>
-    
-   <link rel="stylesheet" type="text/css" href="/css/style.css" /> 
-   <link rel="stylesheet" href="/css/bootstrap.css" />  
-    <link rel="stylesheet" href="/css/main.css" />
+<head>
+<meta charset="UTF-8">
+  <title>{{title}}</title>
 
-    <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
-    <script src="js/responsive-nav.min.js"></script>
-   </head> 
- <style>
-  </style>
- <div class="hero">
-        <nav class="main-nav nav-collapse clear-fix">
-        <ul>
-          <li><a href="/">About</a></li>
-          <li><a href="/customer/login">Login</a></li>
-          <li><a href="#">Contact</a></li>
-          <li class="donate"><a href="/customer/order">Order</a></li>
-        </ul>
-     </nav>
-    
-     <div class="container">
-  
-		      <div class="header clearfix">
-		        <nav>
-			          <ul class="nav nav-pills float-right">
-			             <li class="nav-item">
-			              <a class="nav-link" href="/customer/register"><h3 style="color:#fff">Register</h3></a>
-			            </li>
-			            <li class="nav-item">
-			              <a class="nav-link" href="/customer/logout"><h3 style="color:#fff">Logout</h3></a>
-			            </li>
-			          </ul>
-		        </nav>
-		        
-            </div>
-		 <div class="row">
-        		<div class="col-md-4 col-md-offset-6">
-						<p><h1 style="color:#fff"> Please Signin </h1></p>
-		
-				
-  		
-			    <form class="form-signin" id='signin' name="login" method="post" action="customer/login">       
-			      
-			      <div>
-				  <br>
-			           <input type="text" class="form-control" name="username" placeholder="Email Address" required="yes" autofocus="yes"/> </div>
-			      <br>
-			      <div>
-			          <input type="password" class="form-control" name="password" placeholder="Password" required="yes" autofocus="yes"/>
-			       </div>     
-			      <br>
+ <link rel="stylesheet" type="text/css" href="/css/style.css" />
+ <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/main.css" />
 
-			      <button class="btn btn-lg btn-sucess btn-block" type="submit">Login</button>   
-			    </form>
-			  </div>
-			  </div>
-			
-		</div>
-		 </div>   
-		  
+  <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
+  <script src="js/responsive-nav.min.js"></script>
+ </head>
+<style>
+</style>
+<div class="hero">
+      <nav class="main-nav nav-collapse clear-fix">
+      <ul>
+        <li><a href="/">About</a></li>
+        <li><a href="/customer/login">Login</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="donate"><a href="/customer/order">Order</a></li>
+      </ul>
+   </nav>
+
+   <div class="container">
+
+        <div class="header clearfix">
+          <nav>
+              <ul class="nav nav-pills float-right">
+                 <li class="nav-item">
+                  <a class="nav-link" href="/customer/register"><h3 style="color:#fff">Register</h3></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/customer/logout"><h3 style="color:#fff">Logout</h3></a>
+                </li>
+              </ul>
+          </nav>
+
+          </div>
+   <div class="row">
+          <div class="col-md-4 col-md-offset-6">
+          <p><h1 style="color:#fff"> Please Signin </h1></p>
+
+      {{#if success_msg}}
+                <div class="alert alert-sucess">{{success_msg}} </div>
+            {{/if}}
+
+         {{#if error_msg}}
+          <div class="alert alert-danger">{{error_msg}} </div>
+          {{/if}}
+
+        {{#if error}}
+          <<div class="alert alert-danger">{{error}} </div>
+          {{/if}}
+
+
+        <form class="form-signin" id='signin' name="login" method="post" action="/customer/login">
+
+          <div>
+        <br>
+               <input type="text" class="form-control" name="email" placeholder="Email Address" required="yes" autofocus="yes"/> </div>
+          <br>
+          <div>
+              <input type="password" class="form-control" name="password" placeholder="Password" required="yes" autofocus="yes"/>
+           </div>
+          <br>
+
+          <button class="btn btn-lg btn-sucess btn-block" type="submit">Login</button>
+        </form>
       </div>
+      </div>
+
+  </div>
+   </div>

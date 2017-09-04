@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
 
    </head>
-{ <div class="hero">
+ <div class="hero">
         <nav class="main-nav nav-collapse clear-fix">
         <ul>
           <li><a href="/">About</a></li>
@@ -41,6 +41,9 @@
                 <div class="alert alert-danger">{{msg}} </div>
                 {{/each}}
               {{/if}}
+            {{#if success_msg}}
+              <div class="alert alert-sucess">{{success_msg}} </div>
+            {{/if}}
 
 			    <form class="form-signup" id='signup' name="register" method="post" action="/customer/register">
 			      <div>
@@ -71,7 +74,7 @@
 			           <input type="text" class="form-control" name="city" placeholder="City" required="yes" autofocus="yes" /> </div>
 			      <br>
 			      <div>
-			           <input type="text" class="form-control" name="state" placeholder="State" required="yes" autofocus="yes" /> </div>
+			           <input type="text" class="form-control" name="state" placeholder="State" required="" autofocus="yes" /> </div>
 			      <br>
 				 <div>
 			           <input type="text" class="form-control" name="zipcode" placeholder="zipcode" required="yes" autofocus="yes" /> </div>
