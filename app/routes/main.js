@@ -6,5 +6,11 @@ var router = express.Router();
 		res.render('index')
 	});
 
-	
+	router.get('/about', function(req, res){
+		res.render('about')
+	})
+
+	router.get('/products', function(req, res){
+		res.render('product-manager')
+	})
 module.exports = router;

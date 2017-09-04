@@ -38,7 +38,7 @@ var customer = require('./app/routes/customer') // to get the routs for customer
   app.use(express.static('./public'));
            //For Handlebars
   app.set('views', 'views')
-  app.engine('hbs', exphbs({extname: '.hbs', deffaultLayout: 'main'}));
+  app.engine('hbs', exphbs({extname: '.hbs', defaultLayout: 'main'}));
   app.set('view engine', '.hbs');
 
 
@@ -76,13 +76,15 @@ app.use(flash());
 app.use(function(req, res, next){
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg   = req.flash('error_msg');
-    res.locals.error       = req.flash('error')
+    res.locals.error       = req.flash('error');
+    res.locals.customer     =req.customer || null ;
     next()
 });
 
-app.use('/', routes);
-app.use('/customer', customer)
-
+   app.use('/', routes);
+   app.use('/about', routes);
+   app.use('/products', routes);
+   app.use('/customer', customer);
 
 
 //Sync Database // update Jay

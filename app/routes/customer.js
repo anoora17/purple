@@ -14,9 +14,18 @@ var LocalStrategy = require('passport-local').Strategy;
     res.render('register')
   });
 
-  router.get('/order', (req, res, next) => {
-    res.render('dashboard')
-  });
+  router.get('/order', ensureAuthentication, (req, res, next) => {
+      res.render('dashboard')
+    });
+
+
+    function ensureAuthentication (req, res, next){
+      if(req.isAuthenticated()){
+        console.log('PASSED')
+        return next()
+      } else
+      res.redirect('/cutomer/login')
+    }
 
   router.post('/register',  (req, res) => {
 
