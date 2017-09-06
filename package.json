@@ -20,20 +20,20 @@
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "^1.16.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "*",
     "dotenv": "^4.0.0",
-    "connect-flash":"*",
-    "cookie-parser":"*",
     "express": "*",
     "express-handlebars": "*",
     "express-messages": "*",
-    "express-validator": "*",
     "express-session": "^1.15.0",
+    "express-validator": "*",
+    "moment": "^2.18.1",
     "mysql": "^2.13.0",
     "mysql2": "*",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
     "passport-http": "*",
-    "moment": "^2.18.1",
+    "passport-local": "^1.0.0",
     "sequelize": "^3.30.1"
   }
 }
