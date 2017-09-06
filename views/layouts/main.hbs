@@ -1,41 +1,22 @@
-
 <!DOCTYPE html>
 <html>
 
+  <body>
 
-  <body>  
-  
-             <div class="hero">
+      <div class="hero">
         <nav class="main-nav nav-collapse clear-fix">
         <ul>
+          <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
        <!--    <li><a href="/customer/login">Login</a></li> -->
-          <li><a href="#">Contact</a></li>
+
           <li class="donate"><a href="/customer/login">Order</a></li>
         </ul>
      </nav>
 
-     <div class="container">
-          <div class="header clearfix">
-            <nav>
-                <ul class="nav nav-pills float-right">                        
-                            
-              
-           
-                 <li class="nav-item"><a class="nav-link" href="/customer/logout"><h3 style="color:#fff">Logout</h3></a></li>
-               
-             <li class="nav-item"><a class="nav-link" href="/customer/login"><h3 style="color:#fff">Login</h3></a></li>
-             <li class="nav-item"><a class="nav-link" href="/customer/register"><h3 style="color:#fff">Register</h3></a></li>
-            
 
-                            
-             </ul>               
-        
-            </nav>
-             </div>
-         </div>
-    
-         
+
+
         {{#if success_msg}}
           <div class="alert alert-sucess">{{success_msg}} </div>
         {{/if}}
@@ -47,13 +28,13 @@
         {{#if error}}
             <div class="alert alert-danger"> {{error}} </div>
         {{/if}}
-        
+
 
 
      {{{body}}}
-   
-     
+
+</div>
   </body>
 
- 
+
 </html>

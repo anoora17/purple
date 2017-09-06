@@ -1,11 +1,12 @@
 var express  = require('express');
 var router   = express.Router();
 var Customer = require('../models/')["Customer"]; // to get the value from customer module I know it looks odd but this only with mysql
+var Product = require('../models/')["Product"];
 var db       = require('../models')
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
- var bCrypt = require('bcryptjs');
-
+var bCrypt = require('bcryptjs');
+var flash      = require('connect-flash');
   router.get('/login', (req, res, next) => {
     res.render('login')
   });
@@ -14,19 +15,19 @@ var LocalStrategy = require('passport-local').Strategy;
     res.render('register')
   });
 
-  router.get('/order', ensureAuthentication, (req, res, next) => {
-      res.render('dashboard')
-    });
+  router.get('/cart',ensureAuthentication ,(req, res, next) => {
+    res.render('dashboard')
+  });
 
 
-    function ensureAuthentication (req, res, next){
-      if(req.isAuthenticated()){
-        console.log('PASSED')
-        return next()
-      } else
-      res.redirect('/cutomer/login')
-    }
 
+  function ensureAuthentication (req, res, next){
+    if(req.isAuthenticated()){
+      console.log('PASSED')
+      return next()
+    } else
+    res.redirect('/cutomer/login')
+  }
   router.post('/register',  (req, res) => {
 
 
@@ -62,8 +63,8 @@ var LocalStrategy = require('passport-local').Strategy;
          lastname: req.body.lastname,
             email: req.body.email,
           password: generateHash(pass),
-             addr1: req.body.add,
-             addr2: req.body.add2,
+             addr1: req.body.addr1,
+             addr2: req.body.addr2,
              city:req.body.city,
              state:req.body.state,
           zipcode: req.body.zipcode
@@ -146,7 +147,7 @@ passport.serializeUser(function(customer, done) {
   });
 router.post('/login',
   passport.authenticate('local',
-    { successRedirect:'/customer/order',
+    { successRedirect:'/cart',
   	failureRedirect: '/customer/register',
   	failureFlash: true
      }),

@@ -1,5 +1,5 @@
 'use strict';
-// Matching jay table the he originaly created but with some validations
+
 module.exports = function(sequelize, DataTypes) {
   var Customer = sequelize.define("Customer", {
     id: {
@@ -27,15 +27,15 @@ module.exports = function(sequelize, DataTypes) {
          type: DataTypes.STRING
         },
    addr2: {
-         type: DataTypes.STRING
+         type: DataTypes.TEXT
         },
     city: {
-         type: DataTypes.STRING
+         type: DataTypes.TEXT
         },
    state: {
-         type: DataTypes.STRING
+         type: DataTypes.TEXT
         },
-    zipicode:{
+    zipcode:{
         type:DataTypes.INTEGER,
           validate:{isNumeric: true}
        }
@@ -52,3 +52,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return Customer;
 };
+//
