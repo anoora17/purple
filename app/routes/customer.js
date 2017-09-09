@@ -97,17 +97,23 @@ var flash      = require('connect-flash');
   function(req, email, password, done) {
       console.log(email+"//"+password+" is trying to login as local.");
 
-    var isValidPassword = function(userpass,password){
-      return bCrypt.compareSync(password, userpass);
+    var isValidPassword = function(password,hashrpass){
+      return bCrypt.compare(password, hashrpass).then(function( err,res) {
+    if (err){ throw err}
+  else {( res == true)
+    conosole.log('valid');
+  }
+
+});
     }
 
 db.Customer.findOne({email: email}).then(function (customer) {
-
+        console.log(customer)
       if (!customer) {
         return done(null, false, { message: 'Email does not exist' });
       }
 
-      if (!isValidPassword(customer.password, password)) {
+      if (!isValidPassword(password,customer.password)) {
 
         return done(null, false, { message: 'Incorrect password.' });
 

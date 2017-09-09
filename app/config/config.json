@@ -2,8 +2,8 @@
   "development": {
 
     "username": "root",
-    "password":"default",
-    "database": "mkgclwcz9852ux6g",
+    "password":"root",
+    "database": "new",
 
     "host": "127.0.0.1",
     "dialect": "mysql"
