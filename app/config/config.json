@@ -2,8 +2,13 @@
   "development": {
 
     "username": "root",
+<<<<<<< HEAD
     "password":"root",
     "database": "new",
+=======
+    "password":"default",
+    "database": "cupcakes_db",
+>>>>>>> 9d87756bc9bdd21bab3df2fcc1e2687295606e97
 
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -16,10 +21,6 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "JAWSDB_URL"
   }
 }
